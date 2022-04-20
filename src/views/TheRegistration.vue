@@ -101,7 +101,7 @@ export default {
               })
               .then(() => {
                 console.log("User Created Succesfully");
-                this.$router.push("/");
+                this.$router.push("/rooms");
               })
               .catch((e) => {
                 this.error = e.message || "Display name could not be updated!";

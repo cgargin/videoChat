@@ -55,7 +55,7 @@
                   title="Delete Room"
                   @click="$emit('deleteRoom', item.id)"
                 >
-                  <font-awesome-icon icon="trash"></font-awesome-icon>
+                  <font-awesome-icon icon="trash"> </font-awesome-icon>
                 </button>
 
                 <router-link
@@ -63,7 +63,7 @@
                   title="Check In"
                   :to="`/checkin/${user.uid}/${item.id}`"
                 >
-                  <font-awesome-icon icon="user"></font-awesome-icon>
+                  <font-awesome-icon icon="user"> </font-awesome-icon>
                 </router-link>
 
                 <router-link
@@ -71,11 +71,11 @@
                   title="Chat"
                   :to="`/chat/${user.uid}/${item.id}`"
                 >
-                  <font-awesome-icon icon="video"></font-awesome-icon>
+                  <font-awesome-icon icon="video"> </font-awesome-icon>
                 </router-link>
               </section>
 
-              <section class="pl-3 text-left align-self-center">
+              <section class="pl-10 text-left align-self-center">
                 {{ item.name }}
               </section>
             </div>
@@ -86,16 +86,20 @@
   </div>
 </template>
 <script>
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 export default {
+  components: {
+    FontAwesomeIcon,
+  },
+  props: ["rooms", "user"],
   data() {
     return {
-      rooms: [],
       roomName: null,
     };
   },
   methods: {
     handleAdd() {
-      // this.$emit("addRoom", this.roomName);
+      this.$emit("addRoom", this.roomName);
       this.roomName = null;
       this.$refs.roomName.focus();
     },

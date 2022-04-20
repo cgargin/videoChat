@@ -3,6 +3,8 @@ import HomeView from "../views/HomeView.vue";
 import TheLogin from "../views/TheLogin.vue";
 import TheRegistration from "../views/TheRegistration.vue";
 import TheRooms from "../views/TheRooms.vue";
+import CheckIn from "../views/CheckIn.vue";
+import TheChat from "../views/TheChat.vue";
 
 const routes = [
   {
@@ -24,6 +26,20 @@ const routes = [
     path: "/rooms",
     name: "Rooms",
     component: TheRooms,
+  },
+  {
+    path: "/checkin/:hostID/:roomID",
+    name: "CheckIn",
+    component: CheckIn,
+  },
+  {
+    path: "/chat/:hostID/:roomID",
+    name: "Chat",
+    component: TheChat,
+  },
+  {
+    path: "/:notFound(.*)",
+    redirect: "/",
   },
 ];
 
